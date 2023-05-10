@@ -13,7 +13,6 @@ function addListItem() {
     };
     listItems.push(listItem);
     localStorage.setItem('listItems', JSON.stringify(listItems));
-
     const li = document.createElement('li');
     const span = document.createElement('span');
     span.textContent = text;

@@ -13,16 +13,9 @@ function addListItem() {
     };
     listItems.push(listItem);
     localStorage.setItem('listItems', JSON.stringify(listItems));
-    const li = document.createElement('li');
-    const span = document.createElement('span');
-    span.textContent = text;
-    const button = document.createElement('button');
-    button.textContent = 'Delete';
-    li.appendChild(span);
-    li.appendChild(button);
-    ul.appendChild(li);
     input.value = '';
     errorMessage.style.display = 'none'; // Hide error message if input is not empty
+    renderList();
   } else {
     errorMessage.style.display = 'block'; // Show error message if input is empty
   }
@@ -35,16 +28,28 @@ function deleteListItem(event) {
     listItems = listItems.filter(item => item.id !== parseInt(id));
     localStorage.setItem('listItems', JSON.stringify(listItems));
     li.remove();
+    renderList();
   }
 }
 
-form.addEventListener('submit', event => {
+function renderList() {
+  ul.innerHTML = '';
+  listItems.forEach(item => {
+    const li = document.createElement('li');
+    li.dataset.id = item.id;
+    const span = document.createElement('span');
+    span.textContent = item.value;
+    const button = document.createElement('button');
+    button.textContent = 'Delete';
+    li.appendChild(span);
+    li.appendChild(button);
+    ul.appendChild(li);
+  });
+}
+
+form.addEventListener('submit', (event) => {
   event.preventDefault();
   addListItem();
-});
-
-input.addEventListener('input', () => {
-  errorMessage.style.display = 'none'; // Hide error message when user starts typing in input field
 });
 
 listItems.forEach(item => {

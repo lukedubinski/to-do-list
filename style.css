@@ -4,6 +4,7 @@
 /* Apply Roboto as the primary font */
 * {
   font-family: 'Roboto', sans-serif;
+  font-size: 18px;
 }
 
 /* New color scheme */
@@ -13,12 +14,13 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #f5f5f5;
+  background-color: #f3f0f0;
 }
 
 .todo-list h1 {
   text-align: center;
-  color: #6b5b95;
+  color: #6c44d1;
+  font-size: 32px;
 }
 
 .todo-list form {
@@ -35,8 +37,8 @@
 }
 
 .todo-list button[type="submit"] {
-  padding: 10px;
-  background-color: #6b5b95;
+  padding: 12px;
+  background-color: #6c44d1;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -66,6 +68,7 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 14px;
 }
 
 /* New error message styles */

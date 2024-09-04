@@ -8,13 +8,17 @@
 }
 
 /* New color scheme */
-.todo-list {
-  max-width: 500px;
+.todo-list-container {
+  max-width: 1000px;
   margin: 50px auto 0;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f3f0f0;
+}
+
+.todo-list {
+  width: 100%;
 }
 
 .todo-list h1 {
@@ -34,12 +38,26 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-right: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.todo-list input[type="date"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.due-date_form {
+  margin-right: 10px;
 }
 
 .todo-list button[type="submit"] {
-  padding: 12px;
   background-color: #6c44d1;
   color: #fff;
+  font-size: 24px;
+  text-align: center;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -53,15 +71,51 @@
 .todo-list li {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  flex-wrap: nowrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.todo-list .date-added {
+  width: 90px;
+  margin-right: 10px;
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.todo-list .due-date {
+  width: 90px;
+  margin-right: 10px;
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .todo-list span {
   flex: 1;
+  max-width: calc(100% - 390px); /* Adjusted to accommodate the new due date width */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.tag-dropdown {
+  width: 100px;
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  text-align: center;
 }
 
 .todo-list button {
-  margin-left: auto;
+  width: 70px;
+  margin-left: 10px;
   padding: 5px;
   background-color: #dc3545;
   color: #fff;
@@ -69,6 +123,7 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
+  white-space: nowrap;
 }
 
 /* New error message styles */
@@ -78,4 +133,105 @@
   margin-top: 10px;
   margin-right: 10px;
   display: none;
+}
+
+.filter-container {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.filter-container label {
+  margin-right: 10px;
+}
+
+#filter {
+  padding: 5px;
+  margin: 5px 10px 0 0;
+  width: 100px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.header-row {
+  display: flex;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #6c44d1;
+}
+
+.header-cell {
+  flex: 1;
+  padding-top: 10px;
+}
+
+.header-cell:nth-child(1),
+.header-cell:nth-child(2) {
+  width: 90px;
+  flex: none;
+}
+
+.header-cell:nth-child(2) {
+  margin-left: 10px;
+}
+
+.header-cell:nth-child(3) {
+  margin-left: 8px;
+}
+
+.header-cell:nth-child(4) {
+  width: 100px;
+  flex: none;
+}
+
+.header-cell:nth-child(5) {
+  width: 70px;
+  flex: none;
+}
+
+/* tag management */
+
+.tag-management {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f3f0f0;
+}
+
+.tag-management h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.tag-management input[type="text"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.tag-management button {
+  padding: 5px 10px;
+  margin-left: 5px;
+  background-color: #6c44d1;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.tag-management ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tag-management li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.tag-management li button {
+  margin-left: 10px;
 }

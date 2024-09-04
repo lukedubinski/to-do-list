@@ -3,23 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <title>To-Do List</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="icon"
-        type="image/png"
-        href="/to-do-list/to-do-list-favicon.png">
+  type="image/png"
+  href="/images/to-do-list-favicon.png">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="todo-list">
-    <h1>To-Do List</h1>
-    <form>
-      <input type="text" placeholder="Add a new to-do item" />
-      <div class="error-message">Can't add empty item!</div> <!-- New error message div -->
-      <button type="submit">Add</button>
-    </form>
-    <ul>
-      <!-- Javascript will add li elements here with the text inputted for the to do item -->
-    </ul>
+  <template id="tag-dropdown-template">
+    <select class="tag-dropdown">
+      <option value="">no tag</option>
+      <option value="internal">internal</option>
+      <option value="yondr">yondr</option>
+      <option value="ag">ag</option>
+    </select>
+  </template>
+  <div class="todo-list-container">
+    <div class="todo-list">
+      <h1>To-Do List</h1>
+      <form>
+        <input type="text" placeholder="Add a new to-do item" />
+        <p class="due-date_form">Due Date</p>
+        <input type="date" id="dueDate" />
+        <div class="error-message">Can't add empty item!</div>
+        <button type="submit">Add</button>
+      </form>
+
+      <div class="header-row">
+        <div class="header-cell">Input date</div>
+        <div class="header-cell">Due date</div>
+        <div class="header-cell">Task</div>
+        <div class="filter-container">
+          <select id="filter">
+            <option value="all">all</option>
+            <option value="">no tag</option>
+            <option value="internal">internal</option>
+            <option value="yondr">yondr</option>
+            <option value="ag">ag</option>
+          </select>
+        </div>
+        <div class="header-cell">Action</div>
+      </div>
+      <ul>
+        <!-- Javascript will add li elements here -->
+      </ul>
+    </div>
+    <div class="tag-management">
+      <h2>Manage Tags</h2>
+      <input type="text" id="newTag" placeholder="Add a new tag" />
+      <button id="addTagButton">Add Tag</button>
+      <ul id="tag-list">
+        <!-- Existing tags will be rendered here dynamically -->
+      </ul>
+    </div>
+
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
